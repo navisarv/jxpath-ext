@@ -6,6 +6,7 @@ import java.util.Objects;
 import org.apache.commons.beanutils.PropertyUtilsBean;
 import org.apache.commons.jxpath.JXPathContext;
 import org.apache.commons.jxpath.JXPathInvalidSyntaxException;
+import org.apache.commons.jxpath.JXPathNotFoundException;
 import org.apache.commons.jxpath.Pointer;
 import org.apache.commons.jxpath.ri.EvalContext;
 import org.apache.commons.jxpath.ri.JXPathContextReferenceImpl;
@@ -65,7 +66,7 @@ public class CustomJXPathContextReference extends JXPathContextReferenceImpl {
 			}
 
 		} catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException ex) {
-			throw new JXPathInvalidSyntaxException(
+			throw new JXPathNotFoundException(
 					String.format("Property \"%s\" not exist in xpath \"%s\"", name.getName(), xpath));
 		}
 
