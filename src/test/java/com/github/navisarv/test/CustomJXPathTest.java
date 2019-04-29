@@ -1,7 +1,6 @@
 package com.github.navisarv.test;
 
 import org.apache.commons.jxpath.JXPathContext;
-import org.apache.commons.jxpath.JXPathInvalidSyntaxException;
 import org.apache.commons.jxpath.JXPathNotFoundException;
 import org.junit.Rule;
 import org.junit.Test;
@@ -30,7 +29,7 @@ public class CustomJXPathTest {
 
 	@Test
 	public void testJXPathContextWithUnknownProperty() {
-		exception.expect(JXPathInvalidSyntaxException.class);
+		exception.expect(JXPathNotFoundException.class);
 		exception.expectMessage("Property \"address1\" not exist in xpath \"/address1\"");
 		Employee emp = new Employee();
 		CustomJXPathContext.newContext(emp).getValue("/address1");
